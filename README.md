@@ -6,7 +6,7 @@ Kelas: PBP A
 
 NPM: 2306203526
 
-<details open>
+<details>
 <summary><b>Tugas 7</b></summary>
 <br>
 
@@ -52,5 +52,73 @@ Fungsi `setState()` digunakan untuk memberi tahu Flutter bahwa ada perubahan dal
 8. Implementasikan `ItemCard` di `menu.dart` untuk menampilkan tombol-tombol tersebut dan munculkan `SnackBar` saat tombol ditekan, menampilkan pesan sesuai tombol yang ditekan.
 9. Tampilkan `InfoCard` dan `ItemCard` di `MyHomePage` dengan menggunakan `GridView` dan `Row` untuk layout tombol dan informasi.
 10. Selesai.
+
+</details>
+
+<details open>
+<summary><b>Tugas 8</b></summary>
+<br>
+
+### Apa kegunaan `const` di Flutter? Jelaskan apa keuntungan ketika menggunakan `const` pada kode Flutter. Kapan sebaiknya kita menggunakan `const`, dan kapan sebaiknya tidak digunakan?
+
+`const` di Flutter digunakan untuk membuat objek yang nilainya tetap dan diketahui saat compile time. Penggunaannya sangat penting untuk optimasi performa karena widget const hanya dibuat sekali dan dapat digunakan kembali, menghemat memori. `const` sebaiknya digunakan untuk static widget seperti Text atau Icon, tetapi hindari untuk widget yang membutuhkan data dinamis atau bergantung pada state.
+
+### Jelaskan dan bandingkan penggunaan `Column` dan `Row` pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+
+`Column` dan `Row` adalah widget layout di Flutter yang digunakan untuk mengatur widget anak secara vertikal dan horizontal.
+- `Column`: Mengatur widget anak secara vertikal dari atas ke bawah. Cocok digunakan ketika Anda ingin menampilkan elemen-elemen secara berurutan dari atas ke bawah. Contoh implementasi:
+
+```dart
+child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+    Text('Item: $_name'),
+    Text('Amount: $_amount'), 
+    Text('Description: $_description'),
+    ],
+),
+```
+Pada kode berikut, teks untuk item, amount, dan description tertulis secara vertikal dari atas ke bawah
+
+- `Row`: Mengatur widget anak secara horizontal dari kiri ke kanan. Cocok digunakan ketika Anda ingin menampilkan elemen-elemen secara berurutan dari kiri ke kanan. Contoh implementasi:
+
+```dart
+Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+    InfoCard(title: 'NPM', content: npm),
+    InfoCard(title: 'Name', content: name),
+    InfoCard(title: 'Class', content: className),
+    ],
+),
+```
+Pada kode berikut, infocard untuk npm, nama, dan kelas diatur secara horizontal dari kiri ke kanan
+
+### Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+
+Pada halaman form, elemen input yang digunakan adalah:
+
+- TextFormField untuk input teks name, description, dan amount.
+
+Elemen input Flutter lain yang tidak digunakan pada tugas ini adalah:
+
+- Checkbox: Untuk input boolean, memungkinkan pengguna memilih atau tidak memilih opsi.
+- Radio: Untuk memilih satu dari beberapa opsi yang saling eksklusif.
+- DropdownButton: Untuk memilih satu dari beberapa opsi dalam bentuk dropdown.
+- Slider: Untuk memilih nilai dalam rentang tertentu dengan menggeser kontrol.
+
+### Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+
+Tema pada aplikasi diatur menggunakan Theme.of(context) untuk menjaga konsistensi visual. Kode menggunakan colorScheme.primary untuk warna AppBar dan tombol. Pengaturan tema global bisa dilakukan di MaterialApp menggunakan ThemeData untuk mengatur warna, typography, dan aspek visual lainnya.
+
+Berikut adalah tema yang diimplementasikan pada tugas ini:
+```dart
+// Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
+backgroundColor: Theme.of(context).colorScheme.primary,
+```
+
+### Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+
+Navigasi pada aplikasi menggunakan Navigator dengan MaterialPageRoute untuk perpindahan antar halaman. Drawer digunakan sebagai menu navigasi samping. Navigator.push() dipakai untuk membuka halaman baru, sedangkan Navigator.pushReplacement() untuk mengganti halaman saat ini. Ini memungkinkan pengguna berpindah antara halaman utama dan form penambahan item dengan mudah.
 
 </details>
